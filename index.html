@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gading  Designs & Interiors - Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        .view-detail {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #8B4513;
+            color: white;
+            border-radius: 25px;
+        }
+
+        .view-detail:hover {
+            background: #A0522D;
+        }
+
+        /* Infinite Carousel Slider */
+        .slider-section {
+            margin: 4rem 0;
+            background: white;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .slider-section h2 {
+            text-align: center;
+            color: #8B4513;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .slider-track {
+            display: flex;
+            will-change: transform;
+        }
+
+        .slider-item {
+            min-width: 33.333%;
+            padding: 0 0.5rem;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(139, 69, 19, 0.9);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: #8B4513;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: -25px;
+        }
+
+        .slider-btn.next {
+            right: -25px;
+        }
+
+        .material-info-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .material-info-section h2 {
+            text-align: center;
+            color: #8B4513;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .material-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .material-item {
+            text-align: center;
+        }
+
+        .material-item h3 {
+            color: #8B4513;
+            margin-bottom: 0.5rem;
+        }
+
+        .material-item p {
+            color: #666;
+            margin: 0.3rem 0;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .contact-section h2 {
+            color: #8B4513;
+            margin-bottom: 2rem;
+        }
+
+        .contact-btn {
+            padding: 1rem 2rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .footer {
+            background: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid, .material-grid {
+                grid-template-columns: 1fr;
+            }
+            .slider-item {
+                min-width: 100%;
+            }
+            .slider-btn.prev {
+                left: 5px;
+            }
+            .slider-btn.next {
+                right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">🏠 Gading  Designs & Interiors</div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>CUSTOM KITCHEN SET</h1>
+        <p>Jasa pembuatan, custom desain kitchen set anda.</p>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Galeri Product</h2>
+
+        <div class="product-grid">
+            <a href="detail.html?id=1" class="product-card">
+                <div class="product-image" style="background-image: url('kitset.jpeg');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Kitchen set</h3>
+                    <span class="view-detail">Lihat Lebih Banyak →</span>
+                </div>
+            </a>
+
+            <a href="detail.html?id=2" class="product-card">
+                <div class="product-image" style="background-image: url('lb.jpeg');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Kabinet Lemari</h3>
+                    <span class="view-detail">Lihat Lebih Banyak →</span>
+                </div>
+            </a>
+
+            <a href="detail.html?id=3" class="product-card">
+                <div class="product-image" style="background-image: url('bgd.jpeg');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Backdor TV & Tempat Tidur</h3>
+                    <span class="view-detail">Lihat Lebih Banyak →</span>
+                </div>
+            </a>
+
+            <a href="detail.html?id=4" class="product-card">
+                <div class="product-image" style="background-image: url('pts.jpeg');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Partisi / kisi-kisi</h3>
+                    <span class="view-detail">Lihat Lebih banyak →</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Infinite Carousel Slider - 15 Photos -->
+        <div class="slider-section">
+            <h2>📸</h2>
+            <div class="slider-container">
+                <button class="slider-btn prev" onclick="pauseAndMove(-1)">‹</button>
+                <div class="slider-wrapper">
+                    <div class="slider-track" id="sliderTrack">
+                        <!-- Original 15 slides -->
+                        <div class="slider-item"><img src="other.jpeg" alt="Galeri 1"></div>
+                        <div class="slider-item"><img src="oth2.jpeg" alt="Galeri 2"></div>
+                        <div class="slider-item"><img src="other2.jpeg" alt="Galeri 3"></div>
+                        <div class="slider-item"><img src="other3.jpeg" alt="Galeri 4"></div>
+                        <div class="slider-item"><img src="other4.jpeg" alt="Galeri 5"></div>
+                        <div class="slider-item"><img src="other5.jpeg" alt="Galeri 6"></div>
+                        <div class="slider-item"><img src="other6.jpeg" alt="Galeri 7"></div>
+                        <div class="slider-item"><img src="other7.jpeg" alt="Galeri 8"></div>
+                        <div class="slider-item"><img src="other8.jpeg" alt="Galeri 9"></div>
+                        <div class="slider-item"><img src="other9.jpeg" alt="Galeri 10"></div>
+                        <div class="slider-item"><img src="other10.jpeg" alt="Galeri 11"></div>
+                        <div class="slider-item"><img src="other11.jpeg" alt="Galeri 12"></div>
+                        <div class="slider-item"><img src="other12.jpeg" alt="Galeri 13"></div>
+                        <div class="slider-item"><img src="other13.jpeg" alt="Galeri 14"></div>
+                        <div class="slider-item"><img src="other14.jpeg" alt="Galeri 15"></div>
+                        <!-- Duplicate for infinite loop -->
+                        <div class="slider-item"><img src="other.jpeg" alt="Galeri 1"></div>
+                        <div class="slider-item"><img src="oth2.jpeg" alt="Galeri 2"></div>
+                        <div class="slider-item"><img src="other2.jpeg" alt="Galeri 3"></div>
+                        <div class="slider-item"><img src="other3.jpeg" alt="Galeri 4"></div>
+                        <div class="slider-item"><img src="other4.jpeg" alt="Galeri 5"></div>
+                        <div class="slider-item"><img src="other5.jpeg" alt="Galeri 6"></div>
+                        <div class="slider-item"><img src="other6.jpeg" alt="Galeri 7"></div>
+                        <div class="slider-item"><img src="other7.jpeg" alt="Galeri 8"></div>
+                        <div class="slider-item"><img src="other8.jpeg" alt="Galeri 9"></div>
+                        <div class="slider-item"><img src="other9.jpeg" alt="Galeri 10"></div>
+                        <div class="slider-item"><img src="other10.jpeg" alt="Galeri 11"></div>
+                        <div class="slider-item"><img src="other11.jpeg" alt="Galeri 12"></div>
+                        <div class="slider-item"><img src="other12.jpeg" alt="Galeri 13"></div>
+                        <div class="slider-item"><img src="other13.jpeg" alt="Galeri 14"></div>
+                        <div class="slider-item"><img src="other14.jpeg" alt="Galeri 15"></div>
+                    </div>
+                </div>
+                <button class="slider-btn next" onclick="pauseAndMove(1)">›</button>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 1rem; font-size: 0.9rem;">
+                MELAYANI DENGAN SEPENUH HATI 
+            </p>
+        </div>
+
+        <div class="material-info-section">
+            <h2>🪵 Material & Finishing</h2>
+            <div class="material-grid">
+                <div class="material-item">
+                    <h3>Material</h3>
+                    <p>Multiplek, Blockboard, MDF</p>
+                </div>
+                <div class="material-item">
+                    <h3>Finishing</h3>
+                    <p>HPL, Ducosheet, Cat Duco, Melamin</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Hubungi Kami</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Konsultasi gratis untuk design kitchen set impian Anda!</p>
+            <a href="https://wa.me/628123456789" class="contact-btn">📱 WhatsApp</a>
+            <a href="mailto:info@kitchen.com" class="contact-btn" style="background: #EA4335;">✉️ Email</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy;Thank you for visiting my gallery.</p>
+    </footer>
+
+    <a href="https://wa.me/628123456789" class="whatsapp-float">💬</a>
+
+    <script>
+        const track = document.getElementById('sliderTrack');
+        const items = document.querySelectorAll('.slider-item');
+        const itemWidth = items[0].offsetWidth;
+        let currentPosition = 0;
+        let autoScrollInterval;
+        let isTransitioning = false;
+
+        const scrollSpeed = 1;
+        
+        function autoScroll() {
+            if (!isTransitioning) {
+                currentPosition -= scrollSpeed;
+                
+                if (Math.abs(currentPosition) >= itemWidth * 15) {
+                    currentPosition = 0;
+                }
+                
+                track.style.transition = 'none';
+                track.style.transform = `translateX(${currentPosition}px)`;
+            }
+        }
+
+        function pauseAndMove(direction) {
+            clearInterval(autoScrollInterval);
+            
+            isTransitioning = true;
+            currentPosition += (direction * itemWidth);
+            
+            if (currentPosition > 0) {
+                currentPosition = -(itemWidth * 15);
+            } else if (currentPosition < -(itemWidth * 15)) {
+                currentPosition = 0;
+            }
+            
+            track.style.transition = 'transform 0.5s ease';
+            track.style.transform = `translateX(${currentPosition}px)`;
+            
+            setTimeout(() => {
+                isTransitioning = false;
+                startAutoScroll();
+            }, 3000);
+        }
+
+        function startAutoScroll() {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = setInterval(autoScroll, 20); // 50fps
+        }
+
+        startAutoScroll();
+
+        track.addEventListener('mouseenter', () => {
+            clearInterval(autoScrollInterval);
+        });
+
+        track.addEventListener('mouseleave', () => {
+            if (!isTransitioning) {
+                startAutoScroll();
+            }
+        });
+    </script>
+</body>
+</html>

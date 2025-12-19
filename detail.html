@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Product - Gading  Designs & Interiors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .product-detail {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .main-image-container {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            border-radius: 10px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .thumbnail:hover {
+            border-color: #8B4513;
+        }
+
+        .thumbnail.active {
+            border-color: #8B4513;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: #A0522D;
+            font-weight: bold;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #8B4513;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #A0522D;
+            transform: translateY(-2px);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 80vw;
+            height: 80vh;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: white;
+            color: #333;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            background: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            .main-image-container {
+                height: 300px;
+            }
+            .thumbnail-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .product-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="back-btn">← Kembali ke Gallery</a>
+            <div class="logo">🏠 Gading  Designs & Interiors</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="product-detail">
+            <h1 class="product-title" id="productName">Kitchen Set Modern Minimalis</h1>
+
+            <div class="main-image-container" id="mainImage" onclick="openLightbox()" style="background-image: url('foto1.jpg');"></div>
+
+            <div class="thumbnail-gallery" id="thumbnailGallery">
+                <div class="thumbnail active" onclick="changeImage(0, 'foto1.jpg')" style="background-image: url('foto1.jpg');"></div>
+                <div class="thumbnail" onclick="changeImage(1, 'foto2.jpg')" style="background-image: url('foto2.jpg');"></div>
+                <div class="thumbnail" onclick="changeImage(2, 'foto3.jpg')" style="background-image: url('foto3.jpg');"></div>
+                <div class="thumbnail" onclick="changeImage(3, 'foto4.jpg')" style="background-image: url('foto4.jpg');"></div>
+                <div class="thumbnail" onclick="changeImage(4, 'foto5.jpg')" style="background-image: url('foto5.jpg');"></div>
+            </div>
+
+
+            <div class="action-buttons">
+                <a href="https://wa.me/628123456789" class="btn btn-primary">📱 Hubungi via WhatsApp</a>
+                <a href="index.html" class="btn btn-secondary">← Kembali ke Gallery</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <div class="lightbox-image" id="lightboxImage"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Elevenoned Kitchen Design. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/628123456789" class="whatsapp-float">💬</a>
+
+    <script>
+        const products = {
+            '1': {
+                name: 'Kitchen Set',
+                photos: ['ktc13.jpeg', 'ktc1.jpeg', 'ktc2.jpeg', 'ktc3.jpeg', 'ktc4.jpeg', 'ktc5.jpeg' , 'ktc6.jpeg', 'ktc7.jpeg', 'ktc9.jpeg', 'ktc10.jpeg', 'ktc11.jpeg', 'ktc12.jpeg']
+            },
+            '2': {
+                name: 'Kabinet Lemari',
+                photos: ['lmr1.jpeg', 'lmr2.jpeg', 'lmr3.jpeg', 'lmr4.jpeg', 'lmr5.jpeg', 'lmr6.jpeg', 'lmr7.jpeg', 'lmr8.jpeg', 'lmr9.jpeg', 'lm10.jpeg', 'lm11.jpeg', 'lmr10.jpeg', 'lm12.jpeg', 'lm13.jpeg', 'lm14.jpeg']
+            },
+            '3': {
+                name: 'Backdoor TV & Tempat Tidur',
+                photos: ['bd1.jpeg', 'bd2.jpeg', 'bd4.jpeg', 'bd5.jpeg', 'bd3.jpeg', 'bd6.jpeg', 'bd7.jpeg', 'bd8.jpeg', 'tt1.jpeg', 'tt2.jpeg', 'tt3.jpeg', 'tt4.jpeg', 'tt5.jpeg', 'tt6.jpeg']
+            },
+            '4': {
+                name: 'Partisi/kisi kisi',
+                photos: ['ks1.jpeg', 'ks2.jpeg', 'ks3.jpeg', 'ks4.jpeg', 'ks5.jpeg', 'ks6.jpeg', 'ks7.jpeg', 'ks8.jpeg', 'ks9.jpeg']
+            }
+        };
+
+        // Get product ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || '1';
+        const product = products[productId];
+
+        // Update page content
+        if (product) {
+            document.getElementById('productName').textContent = product.name;
+            document.getElementById('productPrice').textContent = product.price;
+
+            // Update main image
+            document.getElementById('mainImage').style.backgroundImage = `url('${product.photos[0]}')`;
+
+            // Update thumbnails
+            const gallery = document.getElementById('thumbnailGallery');
+            gallery.innerHTML = '';
+            product.photos.forEach((photo, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                thumb.style.backgroundImage = `url('${photo}')`;
+                thumb.onclick = () => changeImage(index, photo);
+                gallery.appendChild(thumb);
+            });
+
+            // Update WhatsApp links
+            const productName = encodeURIComponent(product.name);
+            document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+                link.href = `https://wa.me/628123456789?text=Halo,%20saya%20tertarik%20dengan%20${productName}`;
+            });
+        }
+
+        let currentPhoto = product.photos[0];
+
+        function changeImage(index, photo) {
+            currentPhoto = photo;
+            document.getElementById('mainImage').style.backgroundImage = `url('${photo}')`;
+            document.getElementById('lightboxImage').style.backgroundImage = `url('${photo}')`;
+
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        }
+
+        function openLightbox() {
+            document.getElementById('lightboxImage').style.backgroundImage = `url('${currentPhoto}')`;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Close lightbox on ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
