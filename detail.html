@@ -242,7 +242,7 @@
 
     <div class="container">
         <div class="product-detail">
-            <h1 class="product-title" id="productName">Kitchen Set Modern Minimalis</h1>
+            <h1 class="product-title" id="productName">Kitchen Set</h1>
 
             <div class="main-image-container" id="mainImage" onclick="openLightbox()" style="background-image: url('foto1.jpg');"></div>
 
@@ -256,7 +256,7 @@
 
 
             <div class="action-buttons">
-                <a href="https://wa.me/628123456789" class="btn btn-primary">📱 Hubungi via WhatsApp</a>
+                <a href="https://wa.me/6285779473364" class="btn btn-primary">📱 Hubungi via WhatsApp</a>
                 <a href="index.html" class="btn btn-secondary">← Kembali ke Gallery</a>
             </div>
         </div>
@@ -270,10 +270,10 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 Elevenoned Kitchen Design. All Rights Reserved.</p>
+        <p>&copy; </p>
     </footer>
 
-    <a href="https://wa.me/628123456789" class="whatsapp-float">💬</a>
+    <a href="https://wa.me/6285779473364" class="whatsapp-float">💬</a>
 
     <script>
         const products = {
@@ -303,7 +303,6 @@
         // Update page content
         if (product) {
             document.getElementById('productName').textContent = product.name;
-            document.getElementById('productPrice').textContent = product.price;
 
             // Update main image
             document.getElementById('mainImage').style.backgroundImage = `url('${product.photos[0]}')`;
@@ -322,7 +321,7 @@
             // Update WhatsApp links
             const productName = encodeURIComponent(product.name);
             document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-                link.href = `https://wa.me/628123456789?text=Halo,%20saya%20tertarik%20dengan%20${productName}`;
+                link.href = `https://wa.me/6285779473364?text=Halo,%20saya%20tertarik%20dengan%20${productName}`;
             });
         }
 
